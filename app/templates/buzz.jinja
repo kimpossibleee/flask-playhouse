@@ -1,0 +1,23 @@
+{% extends 'base.jinja' %}
+
+{% block content %}
+
+<h1>Trending by country</h1>
+<table class="table">
+    <thead>
+        <tr>
+            <th scope="col">RANKING</th>
+            <th scope="col">COUNTRY</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for i in range(10) %}
+        <tr>
+            <th scope="row">{{ i }}</th>
+            <td> {{ countries[i][1] }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
