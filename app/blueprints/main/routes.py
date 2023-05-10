@@ -1,6 +1,7 @@
 from . import bp as app
 from flask import render_template
 from app.resources.countries import Country
+import random
 
 @app.route('/')
 def home():
@@ -12,7 +13,8 @@ def about():
 
 @app.route('/buzz')
 def buzz():
-    def get_ten_countries():
-        country_list = (Country)[:10]
+    def random_ten_countries():
+        random.shuffle(Country)
+        country_list = Country[:10]
         return country_list
-    return render_template('buzz.jinja', title='Trending', countries=get_ten_countries())
+    return render_template('buzz.jinja', title='Trending', countries=random_ten_countries())
